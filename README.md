@@ -1,22 +1,42 @@
-# Portfolio Website
+# 🌐 Portfolio Website
 
-A responsive single-page portfolio for Punith P, focused on frontend development and immersive web visuals.
+A personal portfolio website showcasing my work in frontend development and real-time 3D web experiences.
 
-## Live Demo
-https://pun1th01.github.io/portfolio-website/
+🔗 **Live Site:** https://pun1th01.github.io/portfolio-website/
 
-## Highlights
-- Responsive layout for desktop and mobile screens
-- Custom 404 page for GitHub Pages routing
-- SEO and social metadata configured in the main page
-- Clean structure with separate assets, styles, and scripts
+---
 
-## Tech Stack
-- HTML5
-- CSS3
+## 👋 Overview
+
+This website serves as a central hub to present my projects, skills, and ongoing work in:
+
+- Real-time 3D web development  
+- Interactive visual systems  
+- Performance-focused frontend engineering  
+
+---
+
+## ✨ Features
+
+- Responsive design (desktop + mobile)
+- Smooth navigation with section-based layout
+- Project showcase with status indicators (Completed / Work in Progress)
+- Custom 404 page for GitHub Pages
+- SEO + Open Graph metadata for sharing
+- Clean and modular file structure
+
+---
+
+## 🛠 Tech Stack
+
+- HTML5  
+- CSS3  
 - JavaScript (Vanilla)
 
-## Project Structure
+---
+
+## 📁 Project Structure
+
 ```text
 PortfolioWebsite/
 ├── 404.html
@@ -29,15 +49,3 @@ PortfolioWebsite/
 │   └── main.css
 └── js/
     └── main.js
-```
-
-## Run Locally
-1. Open the project folder in VS Code.
-2. Start a local server, for example:
-   ```bash
-   python -m http.server 5500
-   ```
-3. Open http://localhost:5500/index.html in your browser.
-
-## Deployment
-This project is deployed on GitHub Pages from the `main` branch (repository root).
