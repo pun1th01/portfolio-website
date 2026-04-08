@@ -2,6 +2,12 @@
 
 Single-page personal portfolio for Punith P focused on frontend and 3D web experiences.
 
+## Deployment Status
+- Live on GitHub Pages: https://pun1th01.github.io/portfolio-website/
+
+## Live Site
+- https://pun1th01.github.io/portfolio-website/
+
 ## Tech Stack
 - HTML5
 - CSS3
@@ -9,11 +15,12 @@ Single-page personal portfolio for Punith P focused on frontend and 3D web exper
 
 ## Project Structure
 - index.html
+- 404.html
+- .nojekyll
 - assets/images/LiProf.jpg
 - assets/icons/favicon.svg
-- css/styles.css
-- js/script.js
-- components/.gitkeep
+- css/main.css
+- js/main.js
 
 ## Run Locally
 1. Open the project folder in VS Code.
@@ -22,7 +29,11 @@ Single-page personal portfolio for Punith P focused on frontend and 3D web exper
 3. Open:
    - http://localhost:5500/index.html
 
+## Deployment
+- Hosted on GitHub Pages from the `main` branch (root folder).
+- GitHub Pages URL: https://pun1th01.github.io/portfolio-website/
+
 ## Notes
-- UI and behavior are preserved from the previous version.
-- Styling is moved to css/styles.css.
-- Interactions are moved to js/script.js.
+- Responsive single-page portfolio with glassmorphism UI.
+- Includes custom 404 page for GitHub Pages.
+- SEO/social metadata and favicon configured in `index.html`.
