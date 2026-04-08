@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Punith P portfolio - frontend developer building immersive 3D web experiences with Three.js, React, and GLSL. Explore projects, skills, and contact details." />
+  <meta property="og:title" content="Punith P | Frontend Developer Portfolio" />
+  <meta property="og:description" content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
+  <meta property="og:image" content="assets/images/LiProf.jpg" />
+  <meta property="og:url" content="https://your-portfolio-url/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Punith P | Frontend Developer Portfolio" />
+  <meta name="twitter:description" content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
+  <meta name="twitter:image" content="assets/images/LiProf.jpg" />
+  <title>Punith P | Portfolio</title>
+  <link rel="canonical" href="https://your-portfolio-url/" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="preload" href="css/main.css" as="style" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Go to home section">PUNITH P</a>
+      <button class="nav-toggle" id="navToggle" aria-controls="navList" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav-list" id="navList">
+          <li><a href="#home" aria-label="Go to home section">Home</a></li>
+          <li><a href="#about" aria-label="Go to about section">About</a></li>
+          <li><a href="#skills" aria-label="Go to skills section">Skills</a></li>
+          <li><a href="#projects" aria-label="Go to projects section">Projects</a></li>
+          <li><a href="#links" aria-label="Go to links section">Links</a></li>
+          <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero glass-card reveal" aria-label="Hero section">
+      <div class="hero-copy">
+        <span class="kicker">Portfolio</span>
+        <h1>Punith P</h1>
+        <p class="hero-title">Frontend Developer | 3D Web Experiences</p>
+        <p class="hero-tagline">"I build interactive real-time web environments using Three.js and React"</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects" aria-label="Scroll to projects section">View Projects</a>
+          <a class="btn btn-secondary" href="https://github.com/pun1th01" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub profile in new tab">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/punith-p-b5239b28a/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn profile in new tab">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="assets/images/LiProf.jpg" alt="Portrait of Punith P" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section id="about" class="section-card glass-card reveal" aria-label="About section">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtext">
+        3rd-year Computer Science student focused on frontend development and real-time 3D graphics using Three.js and React.
+        Passionate about building interactive and visually immersive web experiences.
+      </p>
+    </section>
+
+    <section id="skills" class="section-card glass-card reveal" aria-label="Skills section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <article class="skill-group" aria-label="Frontend skills">
+          <h3>Frontend</h3>
+          <div class="tag-list">
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+          </div>
+        </article>
+        <article class="skill-group" aria-label="3D and graphics skills">
+          <h3>3D / Graphics</h3>
+          <div class="tag-list">
+            <span class="tag">Three.js</span>
+            <span class="tag">GLSL</span>
+            <span class="tag">Blender</span>
+          </div>
+        </article>
+        <article class="skill-group" aria-label="Tools">
+          <h3>Tools</h3>
+          <div class="tag-list">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section-card glass-card reveal" aria-label="Projects section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <span class="project-status completed">Completed</span>
+          <h3>Low-Poly Time Sync Environment</h3>
+          <p>
+            Real-time 3D environment with accurate sun and moon positioning, moon phase simulation, procedural sky,
+            and a star field of ~18k stars.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://pun1th01.github.io/lowpoly-time-sync-environment/" target="_blank" rel="noopener noreferrer" aria-label="Live demo for Low-Poly Time Sync Environment">Live Demo</a>
+            <a class="btn btn-secondary" href="https://github.com/pun1th01/lowpoly-time-sync-environment" target="_blank" rel="noopener noreferrer" aria-label="Open Time Sync GitHub repository in new tab">GitHub</a>
+            <button class="btn btn-tertiary" type="button" id="aboutProjectTrigger" aria-label="Open detailed project overview" aria-haspopup="dialog" aria-controls="aboutProjectModal">About Project</button>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="project-status wip">WIP</span>
+          <h3>Procedural Low-Poly World Generator (Work in Progress)</h3>
+          <p>
+            Seed-based procedural world generation using React Three Fiber and Blender assets, focusing on scalable
+            environment creation.
+          </p>
+          <div>
+            <span class="wip-pill" aria-label="Work in progress status">🚧 Work in Progress</span>
+            <p class="wip-subtext">Actively being developed</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="links" class="section-card glass-card reveal" aria-label="Links section">
+      <h2 class="section-title">Links</h2>
+      <div class="icon-list">
+        <a class="icon-link" href="https://github.com/pun1th01" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0a12 12 0 0 0-3.79 23.38c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.41-4.04-1.41a3.2 3.2 0 0 0-1.35-1.76c-1.1-.74.08-.73.08-.73a2.53 2.53 0 0 1 1.85 1.24 2.58 2.58 0 0 0 3.53 1 2.58 2.58 0 0 1 .77-1.62c-2.66-.3-5.47-1.33-5.47-5.94a4.64 4.64 0 0 1 1.24-3.22 4.31 4.31 0 0 1 .12-3.17s1-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.31 4.31 0 0 1 .12 3.17 4.63 4.63 0 0 1 1.23 3.22c0 4.62-2.82 5.63-5.5 5.93a2.89 2.89 0 0 1 .82 2.24v3.32c0 .32.21.69.82.58A12 12 0 0 0 12 0Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/punith-p-b5239b28a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45H16.9v-5.58c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.67H9.37V9h3.4v1.56h.05a3.73 3.73 0 0 1 3.36-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.22 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.45A1.78 1.78 0 0 0 24 22.23V1.77A1.78 1.78 0 0 0 22.22 0Z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section-card glass-card reveal" aria-label="Contact section">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtext">Feel free to reach out for opportunities or collaboration.</p>
+      <div class="contact-grid">
+        <article class="contact-card" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+          <div>
+            <span class="contact-label">Email</span>
+            <a class="contact-value" href="mailto:punithp.1307@gmail.com" aria-label="Send email to punithp.1307@gmail.com">punithp.1307@gmail.com</a>
+          </div>
+        </article>
+
+        <article class="contact-card" aria-label="Phone">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6.27 6.27l1.27-1.28a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.63.63A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+          <div>
+            <span class="contact-label">Phone</span>
+            <a class="contact-value" href="tel:+918310563229" aria-label="Call +91 8310563229">+91 8310563229</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Punith P. Crafted with HTML, CSS, and JavaScript.</p>
+    </footer>
+  </main>
+
+  <div class="modal-overlay" id="aboutProjectModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="aboutProjectTitle">
+    <article class="project-modal glass-card">
+      <div class="modal-head">
+        <h3 id="aboutProjectTitle">Low-Poly Time Sync Environment</h3>
+        <button class="modal-close" type="button" id="modalClose" aria-label="Close project details">X</button>
+      </div>
+      <div class="modal-content">
+        <ul>
+          <li>Real-time sun and moon positioning using astronomical calculations</li>
+          <li>Moon phase shader with earthshine</li>
+          <li>~18k star field with Milky Way rendering</li>
+          <li>Procedural volumetric clouds</li>
+          <li>Time slider with real-world sync</li>
+        </ul>
+        <p class="modal-tech">Built using Three.js, GLSL, Blender</p>
+      </div>
+    </article>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
