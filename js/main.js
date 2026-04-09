@@ -46,7 +46,14 @@ function handleSmoothScroll() {
       event.preventDefault();
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        const siteHeader = document.querySelector(".site-header");
+        const headerOffset = siteHeader ? siteHeader.offsetHeight + 12 : 12;
+        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "smooth",
+        });
       }
     });
   });
@@ -78,43 +85,24 @@ function handleActiveSectionHighlight() {
     });
   }
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setActiveById(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.45,
-      }
-    );
+  function updateActiveSection() {
+    const siteHeader = document.querySelector(".site-header");
+    const headerOffset = siteHeader ? siteHeader.offsetHeight + 20 : 20;
+    const scrollMarker = window.scrollY + headerOffset;
+    let activeSectionId = sections[0].id;
 
     sections.forEach(function (section) {
-      observer.observe(section);
+      if (scrollMarker >= section.offsetTop) {
+        activeSectionId = section.id;
+      }
     });
-  } else {
-    window.addEventListener("scroll", function () {
-      let nearest = sections[0];
-      let nearestDistance = Number.POSITIVE_INFINITY;
 
-      sections.forEach(function (section) {
-        const rect = section.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
-        if (distance < nearestDistance) {
-          nearestDistance = distance;
-          nearest = section;
-        }
-      });
-
-      setActiveById(nearest.id);
-    });
+    setActiveById(activeSectionId);
   }
 
-  setActiveById("home");
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  updateActiveSection();
 }
 
 function handleProjectModal() {
