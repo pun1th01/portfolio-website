@@ -115,11 +115,26 @@ function handleActiveSectionHighlight() {
 
     let activeSectionId = sections[0].id;
 
-    sections.forEach(function (section) {
-      if (scrollMarker >= section.offsetTop) {
-        activeSectionId = section.id;
+    for (let index = 0; index < sections.length; index += 1) {
+      const currentSection = sections[index];
+      const currentTop = currentSection.offsetTop;
+      const nextSection = sections[index + 1];
+
+      if (!nextSection) {
+        if (scrollMarker >= currentTop) {
+          activeSectionId = currentSection.id;
+        }
+        break;
       }
-    });
+
+      const nextTop = nextSection.offsetTop;
+      const switchPoint = currentTop + (nextTop - currentTop) * 0.62;
+
+      if (scrollMarker >= currentTop && scrollMarker < switchPoint) {
+        activeSectionId = currentSection.id;
+        break;
+      }
+    }
 
     setActiveById(activeSectionId);
   }
