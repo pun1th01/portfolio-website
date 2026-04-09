@@ -128,9 +128,8 @@ function handleActiveSectionHighlight() {
       }
 
       const nextTop = nextSection.offsetTop;
-      const switchPoint = currentTop + (nextTop - currentTop) * 0.62;
 
-      if (scrollMarker >= currentTop && scrollMarker < switchPoint) {
+      if (scrollMarker >= currentTop && scrollMarker < nextTop) {
         activeSectionId = currentSection.id;
         break;
       }
