@@ -36,6 +36,11 @@ function handleNavbarScroll() {
 }
 
 function handleSmoothScroll() {
+  function getHeaderOffset(extra) {
+    const siteHeader = document.querySelector(".site-header");
+    return (siteHeader ? siteHeader.offsetHeight : 0) + extra;
+  }
+
   document.querySelectorAll('a[href^="#"]:not([href="#!"])').forEach(function (link) {
     link.addEventListener("click", function (event) {
       const targetId = link.getAttribute("href");
@@ -46,8 +51,7 @@ function handleSmoothScroll() {
       event.preventDefault();
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
-        const siteHeader = document.querySelector(".site-header");
-        const headerOffset = siteHeader ? siteHeader.offsetHeight + 12 : 12;
+        const headerOffset = getHeaderOffset(12);
         const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset;
 
         window.scrollTo({
@@ -68,6 +72,7 @@ function handleSmoothScroll() {
 function handleActiveSectionHighlight() {
   const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
   const sections = Array.from(document.querySelectorAll("main section[id]"));
+  let hoveredSectionId = null;
 
   if (!navLinks.length || !sections.length) {
     return;
@@ -85,10 +90,29 @@ function handleActiveSectionHighlight() {
     });
   }
 
+  function setHoveredSection(sectionId) {
+    sections.forEach(function (section) {
+      const isHovered = section.id === sectionId;
+      section.classList.toggle("section-hover-active", isHovered);
+    });
+  }
+
   function updateActiveSection() {
+    if (hoveredSectionId) {
+      return;
+    }
+
     const siteHeader = document.querySelector(".site-header");
-    const headerOffset = siteHeader ? siteHeader.offsetHeight + 20 : 20;
+    const headerOffset = (siteHeader ? siteHeader.offsetHeight : 0) + 20;
     const scrollMarker = window.scrollY + headerOffset;
+    const docHeight = document.documentElement.scrollHeight;
+    const viewportBottom = window.scrollY + window.innerHeight;
+
+    if (viewportBottom >= docHeight - 2) {
+      setActiveById(sections[sections.length - 1].id);
+      return;
+    }
+
     let activeSectionId = sections[0].id;
 
     sections.forEach(function (section) {
@@ -99,6 +123,20 @@ function handleActiveSectionHighlight() {
 
     setActiveById(activeSectionId);
   }
+
+  sections.forEach(function (section) {
+    section.addEventListener("mouseenter", function () {
+      hoveredSectionId = section.id;
+      setHoveredSection(hoveredSectionId);
+      setActiveById(hoveredSectionId);
+    });
+
+    section.addEventListener("mouseleave", function () {
+      hoveredSectionId = null;
+      setHoveredSection(null);
+      updateActiveSection();
+    });
+  });
 
   window.addEventListener("scroll", updateActiveSection, { passive: true });
   window.addEventListener("resize", updateActiveSection);
