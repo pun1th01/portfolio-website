@@ -35,6 +35,9 @@ function handleNavbarScroll() {
   });
 }
 
+let navClickLockSectionId = null;
+let navClickLockUntil = 0;
+
 function handleSmoothScroll() {
   function getHeaderOffset(extra) {
     const siteHeader = document.querySelector(".site-header");
@@ -51,11 +54,18 @@ function handleSmoothScroll() {
       event.preventDefault();
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
+        const absoluteTop = targetSection.getBoundingClientRect().top + window.scrollY;
         const headerOffset = getHeaderOffset(12);
-        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+        const centeredTop = absoluteTop - (window.innerHeight - targetSection.offsetHeight) / 2;
+        const preferredTop = targetId === "#links" ? centeredTop : absoluteTop - headerOffset;
+        const maxScrollTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const targetTop = Math.min(maxScrollTop, Math.max(0, preferredTop));
+
+        navClickLockSectionId = targetSection.id;
+        navClickLockUntil = Date.now() + 1200;
 
         window.scrollTo({
-          top: Math.max(0, targetTop),
+          top: targetTop,
           behavior: "smooth",
         });
       }
@@ -101,6 +111,13 @@ function handleActiveSectionHighlight() {
     if (hoveredSectionId) {
       return;
     }
+
+    if (navClickLockSectionId && Date.now() < navClickLockUntil) {
+      setActiveById(navClickLockSectionId);
+      return;
+    }
+
+    navClickLockSectionId = null;
 
     const siteHeader = document.querySelector(".site-header");
     const headerOffset = (siteHeader ? siteHeader.offsetHeight : 0) + 20;
