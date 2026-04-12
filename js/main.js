@@ -174,30 +174,53 @@ function handleActiveSectionHighlight() {
   updateActiveSection();
 }
 
-function handleProjectModal() {
-  const modalOverlay = document.getElementById("aboutProjectModal");
-  const modalClose = document.getElementById("modalClose");
-  const aboutProjectTrigger = document.getElementById("aboutProjectTrigger");
+function createModalController(config) {
+  const modalOverlay = document.getElementById(config.overlayId);
+  const modalClose = document.getElementById(config.closeId);
+  const trigger = document.getElementById(config.triggerId);
 
-  if (!modalOverlay || !modalClose || !aboutProjectTrigger) {
-    return;
+  if (!modalOverlay || !modalClose || !trigger) {
+    return null;
   }
 
+  let lastFocusedElement = null;
+
   function openModal() {
+    lastFocusedElement = document.activeElement;
     modalOverlay.classList.add("open");
     modalOverlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
+
+    if (typeof config.onOpen === "function") {
+      config.onOpen();
+    }
+
     modalClose.focus();
   }
 
   function closeModal() {
+    if (!modalOverlay.classList.contains("open")) {
+      return;
+    }
+
     modalOverlay.classList.remove("open");
     modalOverlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    aboutProjectTrigger.focus();
+
+    if (!document.querySelector(".modal-overlay.open")) {
+      document.body.classList.remove("modal-open");
+    }
+
+    if (typeof config.onClose === "function") {
+      config.onClose();
+    }
+
+    const fallbackFocus = lastFocusedElement || trigger;
+    if (fallbackFocus && typeof fallbackFocus.focus === "function") {
+      fallbackFocus.focus();
+    }
   }
 
-  aboutProjectTrigger.addEventListener("click", openModal);
+  trigger.addEventListener("click", openModal);
   modalClose.addEventListener("click", closeModal);
 
   modalOverlay.addEventListener("click", function (event) {
@@ -211,6 +234,143 @@ function handleProjectModal() {
       closeModal();
     }
   });
+
+  return {
+    isOpen: function () {
+      return modalOverlay.classList.contains("open");
+    },
+    open: openModal,
+    close: closeModal,
+  };
+}
+
+function handleProjectModal() {
+  createModalController({
+    overlayId: "aboutProjectModal",
+    closeId: "modalClose",
+    triggerId: "aboutProjectTrigger",
+  });
+}
+
+function handleSneakPeekModal() {
+  const worldGeneratorImageFiles = Array.from({ length: 14 }, function (_, index) {
+    const fileNumber = String(index + 1).padStart(2, "0");
+    return "worldgen-sneakpeek-" + fileNumber + ".png";
+  });
+
+  const previewImages = worldGeneratorImageFiles.map(function (fileName, index) {
+    return {
+      src: "assets/images/world-generator/" + encodeURIComponent(fileName),
+      alt: "World generator sneak peek screenshot " + (index + 1),
+    };
+  });
+
+  const sneakPeekImage = document.getElementById("worldSneakPeekImage");
+  const prevButton = document.getElementById("worldSneakPeekPrev");
+  const nextButton = document.getElementById("worldSneakPeekNext");
+  const dotsContainer = document.getElementById("worldSneakPeekDots");
+
+  if (!sneakPeekImage || !prevButton || !nextButton || !dotsContainer || !previewImages.length) {
+    return;
+  }
+
+  let currentIndex = 0;
+
+  function normalizeIndex(index) {
+    return (index + previewImages.length) % previewImages.length;
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+    dots.forEach(function (dot, dotIndex) {
+      const isActive = dotIndex === currentIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  }
+
+  function setSlide(nextIndex, direction, animate) {
+    const normalizedIndex = normalizeIndex(nextIndex);
+    const slide = previewImages[normalizedIndex];
+    const shouldAnimate = animate !== false;
+
+    currentIndex = normalizedIndex;
+
+    function commitSlide() {
+      sneakPeekImage.src = slide.src;
+      sneakPeekImage.alt = slide.alt;
+      sneakPeekImage.classList.remove("is-changing");
+      sneakPeekImage.removeAttribute("data-direction");
+    }
+
+    if (shouldAnimate) {
+      sneakPeekImage.setAttribute("data-direction", direction === "prev" ? "prev" : "next");
+      sneakPeekImage.classList.add("is-changing");
+      window.setTimeout(commitSlide, 150);
+    } else {
+      commitSlide();
+    }
+
+    updateDots();
+  }
+
+  function renderDots() {
+    dotsContainer.innerHTML = "";
+    previewImages.forEach(function (_, index) {
+      const dotButton = document.createElement("button");
+      dotButton.type = "button";
+      dotButton.className = "carousel-dot";
+      dotButton.setAttribute("aria-label", "View screenshot " + (index + 1));
+
+      dotButton.addEventListener("click", function () {
+        const direction = index >= currentIndex ? "next" : "prev";
+        setSlide(index, direction, true);
+      });
+
+      dotsContainer.appendChild(dotButton);
+    });
+  }
+
+  function showNextSlide() {
+    setSlide(currentIndex + 1, "next", true);
+  }
+
+  function showPreviousSlide() {
+    setSlide(currentIndex - 1, "prev", true);
+  }
+
+  prevButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+
+  const modalController = createModalController({
+    overlayId: "worldSneakPeekModal",
+    closeId: "worldSneakPeekClose",
+    triggerId: "worldSneakPeekTrigger",
+    onOpen: function () {
+      setSlide(currentIndex, "next", false);
+    },
+  });
+
+  if (!modalController) {
+    return;
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (!modalController.isOpen()) {
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      showNextSlide();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showPreviousSlide();
+    }
+  });
+
+  renderDots();
+  setSlide(0, "next", false);
 }
 
 function handleAnimations() {
@@ -249,5 +409,6 @@ document.addEventListener("DOMContentLoaded", function () {
   handleSmoothScroll();
   handleActiveSectionHighlight();
   handleProjectModal();
+  handleSneakPeekModal();
   handleAnimations();
 });

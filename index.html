@@ -6,13 +6,13 @@
   <meta name="description" content="Punith P portfolio - frontend developer building immersive 3D web experiences with Three.js, React, and GLSL. Explore projects, skills, and contact details." />
   <meta property="og:title" content="Punith P | Frontend Developer Portfolio" />
   <meta property="og:description" content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
-  <meta property="og:image" content="assets/images/LiProf.jpg" />
+  <meta property="og:image" content="assets/images/profile-portrait.jpg" />
   <meta property="og:url" content="https://pun1th01.github.io/portfolio-website/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Punith P | Frontend Developer Portfolio" />
   <meta name="twitter:description" content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
-  <meta name="twitter:image" content="assets/images/LiProf.jpg" />
+  <meta name="twitter:image" content="assets/images/profile-portrait.jpg" />
   <title>Punith P | Portfolio</title>
   <link rel="canonical" href="https://pun1th01.github.io/portfolio-website/" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="hero-portrait">
-        <img src="assets/images/LiProf.jpg" alt="Portrait of Punith P" loading="lazy" decoding="async" />
+        <img src="assets/images/profile-portrait.jpg" alt="Portrait of Punith P" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -125,8 +125,18 @@
             Seed-based procedural world generation using React Three Fiber and Blender assets, focusing on scalable
             environment creation.
           </p>
-          <div>
+          <div class="wip-actions">
             <span class="wip-pill" aria-label="Work in progress status">🚧 Work in Progress</span>
+            <button
+              class="btn btn-tertiary sneak-peek-btn"
+              type="button"
+              id="worldSneakPeekTrigger"
+              aria-label="Open world generator sneak peek gallery"
+              aria-haspopup="dialog"
+              aria-controls="worldSneakPeekModal"
+            >
+              Sneak Peek
+            </button>
             <p class="wip-subtext">Actively being developed</p>
           </div>
         </article>
@@ -198,6 +208,35 @@
           <li>Time slider with real-world sync</li>
         </ul>
         <p class="modal-tech">Built using Three.js, GLSL, Blender</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="modal-overlay" id="worldSneakPeekModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="worldSneakPeekTitle">
+    <article class="project-modal sneak-peek-modal glass-card">
+      <div class="modal-head">
+        <h3 id="worldSneakPeekTitle">Procedural Low-Poly World Generator - Sneak Peek</h3>
+        <button class="modal-close" type="button" id="worldSneakPeekClose" aria-label="Close sneak peek gallery">X</button>
+      </div>
+      <div class="sneak-peek-content">
+        <div class="sneak-peek-carousel" aria-live="polite">
+          <button class="carousel-nav" type="button" id="worldSneakPeekPrev" aria-label="Previous screenshot">&larr;</button>
+          <figure class="sneak-peek-frame">
+            <img
+              id="worldSneakPeekImage"
+              class="sneak-peek-image"
+              src=""
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <button class="carousel-nav" type="button" id="worldSneakPeekNext" aria-label="Next screenshot">&rarr;</button>
+        </div>
+        <div class="carousel-dots" id="worldSneakPeekDots" aria-label="Carousel slide indicators"></div>
+        <p class="sneak-peek-caption">
+          Development snapshots of the ongoing Procedural Low-Poly World Generator.
+        </p>
       </div>
     </article>
   </div>
