@@ -275,6 +275,20 @@ function handleSneakPeekModal() {
   }
 
   let currentIndex = 0;
+  let slideSwapTimer = null;
+  let slideCleanupTimer = null;
+
+  function clearSlideTimers() {
+    if (slideSwapTimer) {
+      window.clearTimeout(slideSwapTimer);
+      slideSwapTimer = null;
+    }
+
+    if (slideCleanupTimer) {
+      window.clearTimeout(slideCleanupTimer);
+      slideCleanupTimer = null;
+    }
+  }
 
   function normalizeIndex(index) {
     return (index + previewImages.length) % previewImages.length;
@@ -296,18 +310,33 @@ function handleSneakPeekModal() {
 
     currentIndex = normalizedIndex;
 
+    clearSlideTimers();
+
     function commitSlide() {
       sneakPeekImage.src = slide.src;
       sneakPeekImage.alt = slide.alt;
       sneakPeekImage.classList.remove("is-changing");
-      sneakPeekImage.removeAttribute("data-direction");
+
+      if (shouldAnimate) {
+        sneakPeekImage.classList.add("is-entering");
+        void sneakPeekImage.offsetWidth;
+        sneakPeekImage.classList.remove("is-entering");
+
+        slideCleanupTimer = window.setTimeout(function () {
+          sneakPeekImage.removeAttribute("data-direction");
+        }, 320);
+      } else {
+        sneakPeekImage.removeAttribute("data-direction");
+      }
     }
 
     if (shouldAnimate) {
       sneakPeekImage.setAttribute("data-direction", direction === "prev" ? "prev" : "next");
+      sneakPeekImage.classList.remove("is-entering");
       sneakPeekImage.classList.add("is-changing");
-      window.setTimeout(commitSlide, 150);
+      slideSwapTimer = window.setTimeout(commitSlide, 170);
     } else {
+      sneakPeekImage.classList.remove("is-entering", "is-changing");
       commitSlide();
     }
 

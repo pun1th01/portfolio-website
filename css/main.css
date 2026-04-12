@@ -609,7 +609,8 @@ h1 {
   object-fit: contain;
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+  transition: opacity 0.33s cubic-bezier(0.22, 1, 0.36, 1), transform 0.33s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sneak-peek-image.is-changing {
@@ -617,11 +618,29 @@ h1 {
 }
 
 .sneak-peek-image.is-changing[data-direction="next"] {
-  transform: translateX(-14px);
+  transform: translateX(-18px) scale(0.992);
 }
 
 .sneak-peek-image.is-changing[data-direction="prev"] {
-  transform: translateX(14px);
+  transform: translateX(18px) scale(0.992);
+}
+
+.sneak-peek-image.is-entering {
+  opacity: 0;
+}
+
+.sneak-peek-image.is-entering[data-direction="next"] {
+  transform: translateX(18px) scale(0.992);
+}
+
+.sneak-peek-image.is-entering[data-direction="prev"] {
+  transform: translateX(-18px) scale(0.992);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sneak-peek-image {
+    transition: none;
+  }
 }
 
 .carousel-nav {
