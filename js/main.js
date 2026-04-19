@@ -253,24 +253,28 @@ function handleProjectModal() {
 }
 
 function handleSneakPeekModal() {
-  const worldGeneratorImageFiles = Array.from({ length: 14 }, function (_, index) {
-    const fileNumber = String(index + 1).padStart(2, "0");
-    return "worldgen-sneakpeek-" + fileNumber + ".png";
-  });
+  const worldGeneratorFiles = ["Noise_Terrain.mp4"];
+  for (let i = 1; i <= 14; i++) {
+    worldGeneratorFiles.push("worldgen-sneakpeek-" + String(i).padStart(2, "0") + ".png");
+  }
 
-  const previewImages = worldGeneratorImageFiles.map(function (fileName, index) {
+  const previewImages = worldGeneratorFiles.map(function (fileName, index) {
+    const isVideo = fileName.endsWith(".mp4");
+    const basePath = isVideo ? "assets/videos/world-generator/" : "assets/images/world-generator/";
     return {
-      src: "assets/images/world-generator/" + encodeURIComponent(fileName),
-      alt: "World generator sneak peek screenshot " + (index + 1),
+      src: basePath + encodeURIComponent(fileName),
+      alt: "World generator sneak peek " + (index + 1),
+      isVideo: isVideo
     };
   });
 
   const sneakPeekImage = document.getElementById("worldSneakPeekImage");
+  const sneakPeekVideo = document.getElementById("worldSneakPeekVideo");
   const prevButton = document.getElementById("worldSneakPeekPrev");
   const nextButton = document.getElementById("worldSneakPeekNext");
   const dotsContainer = document.getElementById("worldSneakPeekDots");
 
-  if (!sneakPeekImage || !prevButton || !nextButton || !dotsContainer || !previewImages.length) {
+  if (!sneakPeekImage || !sneakPeekVideo || !prevButton || !nextButton || !dotsContainer || !previewImages.length) {
     return;
   }
 
@@ -312,31 +316,50 @@ function handleSneakPeekModal() {
 
     clearSlideTimers();
 
+    const mediaElements = [sneakPeekImage, sneakPeekVideo];
+
+    function getActiveMedia() {
+      return slide.isVideo ? sneakPeekVideo : sneakPeekImage;
+    }
+
     function commitSlide() {
-      sneakPeekImage.src = slide.src;
-      sneakPeekImage.alt = slide.alt;
-      sneakPeekImage.classList.remove("is-changing");
+      if (slide.isVideo) {
+        sneakPeekVideo.src = slide.src;
+        sneakPeekImage.style.display = "none";
+        sneakPeekVideo.style.display = "";
+      } else {
+        sneakPeekImage.src = slide.src;
+        sneakPeekImage.alt = slide.alt;
+        sneakPeekVideo.style.display = "none";
+        sneakPeekVideo.pause();
+        sneakPeekImage.style.display = "";
+      }
+
+      mediaElements.forEach(function (el) { el.classList.remove("is-changing"); });
 
       if (shouldAnimate) {
-        sneakPeekImage.classList.add("is-entering");
-        void sneakPeekImage.offsetWidth;
-        sneakPeekImage.classList.remove("is-entering");
+        const activeMedia = getActiveMedia();
+        activeMedia.classList.add("is-entering");
+        void activeMedia.offsetWidth;
+        activeMedia.classList.remove("is-entering");
 
         slideCleanupTimer = window.setTimeout(function () {
-          sneakPeekImage.removeAttribute("data-direction");
+          mediaElements.forEach(function (el) { el.removeAttribute("data-direction"); });
         }, 320);
       } else {
-        sneakPeekImage.removeAttribute("data-direction");
+        mediaElements.forEach(function (el) { el.removeAttribute("data-direction"); });
       }
     }
 
     if (shouldAnimate) {
-      sneakPeekImage.setAttribute("data-direction", direction === "prev" ? "prev" : "next");
-      sneakPeekImage.classList.remove("is-entering");
-      sneakPeekImage.classList.add("is-changing");
+      mediaElements.forEach(function (el) {
+        el.setAttribute("data-direction", direction === "prev" ? "prev" : "next");
+        el.classList.remove("is-entering");
+        el.classList.add("is-changing");
+      });
       slideSwapTimer = window.setTimeout(commitSlide, 170);
     } else {
-      sneakPeekImage.classList.remove("is-entering", "is-changing");
+      mediaElements.forEach(function (el) { el.classList.remove("is-entering", "is-changing"); });
       commitSlide();
     }
 
@@ -378,6 +401,11 @@ function handleSneakPeekModal() {
     onOpen: function () {
       setSlide(currentIndex, "next", false);
     },
+    onClose: function () {
+      if (sneakPeekVideo) {
+        sneakPeekVideo.pause();
+      }
+    }
   });
 
   if (!modalController) {

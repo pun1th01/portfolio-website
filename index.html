@@ -221,7 +221,7 @@
       <div class="sneak-peek-content">
         <div class="sneak-peek-carousel" aria-live="polite">
           <button class="carousel-nav" type="button" id="worldSneakPeekPrev" aria-label="Previous screenshot">&larr;</button>
-          <figure class="sneak-peek-frame">
+          <figure class="sneak-peek-frame" id="worldSneakPeekFrame">
             <img
               id="worldSneakPeekImage"
               class="sneak-peek-image"
@@ -230,6 +230,17 @@
               loading="lazy"
               decoding="async"
             />
+            <video
+              id="worldSneakPeekVideo"
+              class="sneak-peek-image sneak-peek-video"
+              src=""
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+              style="display: none;"
+            ></video>
           </figure>
           <button class="carousel-nav" type="button" id="worldSneakPeekNext" aria-label="Next screenshot">&rarr;</button>
         </div>
