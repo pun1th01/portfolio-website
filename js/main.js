@@ -253,14 +253,24 @@ function handleProjectModal() {
 }
 
 function handleSneakPeekModal() {
-  const worldGeneratorFiles = ["Noise_Terrain.mp4"];
-  for (let i = 1; i <= 14; i++) {
+  const worldGeneratorFiles = [
+    "Noise_Terrain.mp4",
+    "Noise_Terrain_2.mp4"
+  ];
+  for (let i = 1; i <= 18; i++) {
     worldGeneratorFiles.push("worldgen-sneakpeek-" + String(i).padStart(2, "0") + ".png");
   }
 
   const previewImages = worldGeneratorFiles.map(function (fileName, index) {
     const isVideo = fileName.endsWith(".mp4");
     const basePath = isVideo ? "assets/videos/world-generator/" : "assets/images/world-generator/";
+    
+    // Preload image to fix flickering
+    if (!isVideo) {
+      const img = new Image();
+      img.src = basePath + encodeURIComponent(fileName);
+    }
+    
     return {
       src: basePath + encodeURIComponent(fileName),
       alt: "World generator sneak peek " + (index + 1),

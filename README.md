@@ -57,10 +57,15 @@ PortfolioWebsite/
 |   |       |-- worldgen-sneakpeek-11.png
 |   |       |-- worldgen-sneakpeek-12.png
 |   |       |-- worldgen-sneakpeek-13.png
-|   |       `-- worldgen-sneakpeek-14.png
+|   |       |-- worldgen-sneakpeek-14.png
+|   |       |-- worldgen-sneakpeek-15.png
+|   |       |-- worldgen-sneakpeek-16.png
+|   |       |-- worldgen-sneakpeek-17.png
+|   |       `-- worldgen-sneakpeek-18.png
 |   |-- videos/
 |   |   `-- world-generator/
-|   |       `-- Noise_Terrain.mp4
+|   |       |-- Noise_Terrain.mp4
+|   |       `-- Noise_Terrain_2.mp4
 |   `-- resume/
 |       `-- Punith_P_Resume.pdf
 |-- css/
@@ -87,5 +92,5 @@ PortfolioWebsite/
 - Keep the resume file at assets/resume/Punith_P_Resume.pdf to preserve the Download Resume link.
 - Keep world generator preview images in assets/images/world-generator/.
 - Keep world generator preview videos in assets/videos/world-generator/.
-- If you add more Sneak Peek images, continue the naming pattern: worldgen-sneakpeek-15.png, worldgen-sneakpeek-16.png, etc.
+- If you add more Sneak Peek images, continue the naming pattern: worldgen-sneakpeek-19.png, worldgen-sneakpeek-20.png, etc.
 - All asset paths are relative for GitHub Pages compatibility.
