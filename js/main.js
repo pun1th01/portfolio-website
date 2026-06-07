@@ -257,7 +257,7 @@ function handleSneakPeekModal() {
     "Noise_Terrain.mp4",
     "Noise_Terrain_2.mp4"
   ];
-  for (let i = 1; i <= 18; i++) {
+  for (let i = 1; i <= 35; i++) {
     worldGeneratorFiles.push("worldgen-sneakpeek-" + String(i).padStart(2, "0") + ".png");
   }
 
