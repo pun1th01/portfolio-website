@@ -54,7 +54,7 @@
         <p class="hero-tagline">"I build interactive real-time web environments using Three.js and React"</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#projects" aria-label="Scroll to projects section">View Projects</a>
-          <a class="btn btn-secondary" href="assets/resume/Punith_P_Resume.pdf" download="Punith_P_Resume.pdf"
+          <a class="btn btn-secondary" href="Punith P - Resume.pdf" download="Punith P - Resume.pdf"
             aria-label="Download Resume">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
               aria-hidden="true" focusable="false">
@@ -116,39 +116,82 @@
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
         <article class="project-card">
+          <span class="project-status wip">WIP</span>
+          <h3>Lipi — Fabric Minecraft Mod</h3>
+          <p>
+            Independent chat platform for Fabric Minecraft servers. Custom client-server networking,
+            dedicated chat UI, server-side logging, and admin moderation tools.
+          </p>
+          <div class="tag-list" style="margin-bottom: 0.8rem;">
+            <span class="tag">Java</span>
+            <span class="tag">Fabric API</span>
+            <span class="tag">Minecraft</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://www.curseforge.com/minecraft/mc-mods/lipi" target="_blank"
+              rel="noopener noreferrer" aria-label="View Lipi on CurseForge">CurseForge</a>
+            <a class="btn btn-secondary" href="https://github.com/pun1th01/Lipi" target="_blank"
+              rel="noopener noreferrer" aria-label="Open Lipi GitHub repository in new tab">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="project-status wip">WIP</span>
+          <h3>JeevanLocker — Medical Document Management</h3>
+          <p>
+            Secure full-stack medical record storage platform with role-based access control,
+            JWT authentication, audit logging, and blockchain architecture design.
+          </p>
+          <div class="tag-list" style="margin-bottom: 0.8rem;">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Express</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-secondary" href="https://github.com/pun1th01/jeevan-locker" target="_blank"
+              rel="noopener noreferrer" aria-label="Open JeevanLocker GitHub repository in new tab">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
           <span class="project-status completed">Completed</span>
           <h3>Low-Poly Time Sync Environment</h3>
           <p>
-            Real-time 3D environment with accurate sun and moon positioning, moon phase simulation, procedural sky,
-            and a star field of ~18k stars.
+            Real-time 3D web app rendering ~18,000 stars synced to real-world time and geolocation.
+            Custom GLSL shaders for moon phases, sky transitions, and procedural clouds.
           </p>
+          <div class="tag-list" style="margin-bottom: 0.8rem;">
+            <span class="tag">Three.js</span>
+            <span class="tag">WebGL</span>
+            <span class="tag">GLSL</span>
+            <span class="tag">JavaScript</span>
+          </div>
           <div class="actions">
             <a class="btn btn-primary" href="https://pun1th01.github.io/lowpoly-time-sync-environment/" target="_blank"
               rel="noopener noreferrer" aria-label="Live demo for Low-Poly Time Sync Environment">Live Demo</a>
             <a class="btn btn-secondary" href="https://github.com/pun1th01/lowpoly-time-sync-environment"
               target="_blank" rel="noopener noreferrer"
               aria-label="Open Time Sync GitHub repository in new tab">GitHub</a>
-            <button class="btn btn-tertiary" type="button" id="aboutProjectTrigger"
-              aria-label="Open detailed project overview" aria-haspopup="dialog" aria-controls="aboutProjectModal">About
-              Project</button>
           </div>
         </article>
 
         <article class="project-card">
           <span class="project-status wip">WIP</span>
-          <h3>Procedural Low-Poly World Generator (Work in Progress)</h3>
+          <h3>Procedural Low-Poly World Generator</h3>
           <p>
-            Seed-based procedural world generation using React Three Fiber and Blender assets, focusing on scalable
-            environment creation.
+            Seed-based procedural terrain generation using React Three Fiber. Archetype-based mountains,
+            domain warping, instanced tree rendering, and Blender-to-web GLB pipeline.
           </p>
-          <div class="wip-actions">
-            <span class="wip-pill" aria-label="Work in progress status">🚧 Work in Progress</span>
-            <button class="btn btn-tertiary sneak-peek-btn" type="button" id="worldSneakPeekTrigger"
-              aria-label="Open world generator sneak peek gallery" aria-haspopup="dialog"
-              aria-controls="worldSneakPeekModal">
-              Sneak Peek
-            </button>
-            <p class="wip-subtext">Actively being developed</p>
+          <div class="tag-list" style="margin-bottom: 0.8rem;">
+            <span class="tag">React Three Fiber</span>
+            <span class="tag">Three.js</span>
+            <span class="tag">Blender</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-secondary" href="https://github.com/pun1th01/procedural-world-generator" target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Procedural World Generator GitHub repository in new tab">GitHub</a>
           </div>
         </article>
       </div>
