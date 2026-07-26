@@ -9,22 +9,26 @@
   <meta property="og:title" content="Punith P | Frontend Developer Portfolio" />
   <meta property="og:description"
     content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
-  <meta property="og:image" content="assets/images/profile-portrait.jpg" />
+  <meta property="og:image" content="assets/images/MyNewPFP.png" />
   <meta property="og:url" content="https://pun1th01.github.io/portfolio-website/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Punith P | Frontend Developer Portfolio" />
   <meta name="twitter:description"
     content="Frontend Developer specializing in 3D web experiences using Three.js and React" />
-  <meta name="twitter:image" content="assets/images/profile-portrait.jpg" />
+  <meta name="twitter:image" content="assets/images/MyNewPFP.png" />
   <title>Punith P | Portfolio</title>
   <link rel="canonical" href="https://pun1th01.github.io/portfolio-website/" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" href="css/main.css" as="style" />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
+  <canvas id="city-canvas" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Go to home section">PUNITH P</a>
@@ -50,8 +54,8 @@
       <div class="hero-copy">
         <span class="kicker">Portfolio</span>
         <h1>Punith P</h1>
-        <p class="hero-title">Frontend Developer | 3D Web Experiences</p>
-        <p class="hero-tagline">"I build interactive real-time web environments using Three.js and React"</p>
+        <p class="hero-title">Frontend Developer · 3D Web · Minecraft Modding</p>
+        <p class="hero-tagline">"Building real-time interactive experiences — from procedural 3D worlds to published Minecraft mods."</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#projects" aria-label="Scroll to projects section">View Projects</a>
           <a class="btn btn-secondary" href="assets/resume/Punith P - Resume.pdf" download="Punith P - Resume.pdf"
@@ -71,14 +75,14 @@
         </div>
       </div>
       <div class="hero-portrait">
-        <img src="assets/images/profile-portrait.jpg" alt="Portrait of Punith P" loading="lazy" decoding="async" />
+        <img src="assets/images/MyNewPFP.png" alt="Punith P - Profile" loading="lazy" decoding="async" />
       </div>
     </section>
 
     <section id="about" class="section-card glass-card reveal" aria-label="About section">
       <h2 class="section-title">About</h2>
       <p class="section-subtext">
-        3rd-year Computer Science student focused on frontend development and real-time 3D graphics using Three.js and
+        4th-year Computer Science student focused on frontend development and real-time 3D graphics using Three.js and
         React.
         Passionate about building interactive and visually immersive web experiences.
       </p>
@@ -87,19 +91,39 @@
     <section id="skills" class="section-card glass-card reveal" aria-label="Skills section">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
+        <article class="skill-group" aria-label="Languages">
+          <h3>Languages</h3>
+          <div class="tag-list">
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Java</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </article>
         <article class="skill-group" aria-label="Frontend skills">
           <h3>Frontend</h3>
           <div class="tag-list">
-            <span class="tag">JavaScript</span>
             <span class="tag">React</span>
+            <span class="tag">React Three Fiber</span>
+            <span class="tag">Responsive Design</span>
           </div>
         </article>
         <article class="skill-group" aria-label="3D and graphics skills">
-          <h3>3D / Graphics</h3>
+          <h3>3D &amp; Graphics</h3>
           <div class="tag-list">
             <span class="tag">Three.js</span>
+            <span class="tag">WebGL</span>
             <span class="tag">GLSL</span>
             <span class="tag">Blender</span>
+          </div>
+        </article>
+        <article class="skill-group" aria-label="Backend skills">
+          <h3>Backend</h3>
+          <div class="tag-list">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">MongoDB</span>
           </div>
         </article>
         <article class="skill-group" aria-label="Tools">
@@ -107,6 +131,9 @@
           <div class="tag-list">
             <span class="tag">Git</span>
             <span class="tag">GitHub</span>
+            <span class="tag">JWT</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Fabric API</span>
           </div>
         </article>
       </div>
@@ -122,7 +149,7 @@
             Independent chat platform for Fabric Minecraft servers. Custom client-server networking,
             dedicated chat UI, server-side logging, and admin moderation tools.
           </p>
-          <div class="tag-list" style="margin-bottom: 0.8rem;">
+          <div class="tag-list">
             <span class="tag">Java</span>
             <span class="tag">Fabric API</span>
             <span class="tag">Minecraft</span>
@@ -130,6 +157,8 @@
           <div class="actions">
             <a class="btn btn-primary" href="https://www.curseforge.com/minecraft/mc-mods/lipi" target="_blank"
               rel="noopener noreferrer" aria-label="View Lipi on CurseForge">CurseForge</a>
+            <a class="btn btn-primary" href="https://modrinth.com/mod/lipi" target="_blank"
+              rel="noopener noreferrer" aria-label="View Lipi on Modrinth">Modrinth</a>
             <a class="btn btn-secondary" href="https://github.com/pun1th01/Lipi" target="_blank"
               rel="noopener noreferrer" aria-label="Open Lipi GitHub repository in new tab">GitHub</a>
           </div>
@@ -142,7 +171,7 @@
             Secure full-stack medical record storage platform with role-based access control,
             JWT authentication, audit logging, and blockchain architecture design.
           </p>
-          <div class="tag-list" style="margin-bottom: 0.8rem;">
+          <div class="tag-list">
             <span class="tag">React</span>
             <span class="tag">Node.js</span>
             <span class="tag">MongoDB</span>
@@ -161,7 +190,7 @@
             Real-time 3D web app rendering ~18,000 stars synced to real-world time and geolocation.
             Custom GLSL shaders for moon phases, sky transitions, and procedural clouds.
           </p>
-          <div class="tag-list" style="margin-bottom: 0.8rem;">
+          <div class="tag-list">
             <span class="tag">Three.js</span>
             <span class="tag">WebGL</span>
             <span class="tag">GLSL</span>
@@ -183,7 +212,7 @@
             Seed-based procedural terrain generation using React Three Fiber. Archetype-based mountains,
             domain warping, instanced tree rendering, and Blender-to-web GLB pipeline.
           </p>
-          <div class="tag-list" style="margin-bottom: 0.8rem;">
+          <div class="tag-list">
             <span class="tag">React Three Fiber</span>
             <span class="tag">Three.js</span>
             <span class="tag">Blender</span>
