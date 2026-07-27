@@ -36,6 +36,9 @@ function initCityBackground() {
     canvas.style.height = H + 'px';
     isMobile = W < 768;
     generateScene();
+    if (weatherState === 'raining' || weatherState === 'fade-in') {
+      generateRainDrops();
+    }
   }
 
   // ── Scene generation ──
@@ -622,7 +625,6 @@ function initCityBackground() {
 
   // ── Make rain permanent ──
   function initWeather() {
-    if (reducedMotion) return;
     weatherState = 'raining';
     weatherAlpha = 1;
     weatherStartTime = Date.now();
@@ -681,11 +683,6 @@ function initCityBackground() {
 
   // Respect reduced motion preference
   reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reducedMotion) {
-    resize();
-    render(0);
-    return;
-  }
 
   // ── Init ──
   window.addEventListener('resize', resize);
