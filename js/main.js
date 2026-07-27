@@ -526,11 +526,11 @@ function initCityBackground() {
       case 'clear':
         // Random auto-trigger skipped if reduced motion is on
         if (!reducedMotion && now > nextWeatherCheck) {
-          // ~15% chance each check cycle; checks every 15-40s
-          if (Math.random() < 0.15) {
+          // ~30% chance each check cycle; checks every 10-20s
+          if (Math.random() < 0.3) {
             startRain();
           }
-          nextWeatherCheck = now + 15000 + Math.random() * 25000;
+          nextWeatherCheck = now + 10000 + Math.random() * 10000;
         }
         break;
 
@@ -555,8 +555,8 @@ function initCityBackground() {
           weatherAlpha = 0;
           rainDrops = [];
           lightningFlash = 0;
-          // Long gap before rain can start again: 60-180s
-          nextWeatherCheck = now + 60000 + Math.random() * 120000;
+          // Gap before rain can start again: ~30s
+          nextWeatherCheck = now + 20000 + Math.random() * 20000;
           // If reducedMotion is on, stop the animation loop again — it was
           // only restarted temporarily for the manual rain trigger.
           if (reducedMotion) {
@@ -622,19 +622,16 @@ function initCityBackground() {
     ctx.fillRect(0, 0, W, skyBottom);
   }
 
-  // ── Possibly start with rain already happening ──
+  // ── Make rain permanent ──
   function initWeather() {
     if (reducedMotion) return;
-    // ~25% chance rain is already active on page load
-    if (Math.random() < 0.25) {
-      weatherState = 'raining';
-      weatherAlpha = 1;
-      weatherStartTime = Date.now();
-      weatherDuration = 15000 + Math.random() * 35000;
-      generateRainDrops();
-      lightningCooldown = Date.now() + 8000; // extra safety on page load
-      nextLightningTime = Date.now() + 10000 + Math.random() * 15000;
-    }
+    weatherState = 'raining';
+    weatherAlpha = 1;
+    weatherStartTime = Date.now();
+    weatherDuration = Infinity; // Permanent rain
+    generateRainDrops();
+    lightningCooldown = Date.now() + 8000;
+    nextLightningTime = Date.now() + 10000 + Math.random() * 15000;
   }
 
   // ── Main render loop ──
@@ -681,24 +678,6 @@ function initCityBackground() {
       cancelAnimationFrame(animFrame);
     } else {
       animFrame = requestAnimationFrame(render);
-    }
-  });
-
-  // ── Right Shift to manually trigger rain for testing ──
-  document.addEventListener('keydown', function(event) {
-    if (event.code === 'ShiftRight') {
-      console.log('[Rain Debug] Right Shift pressed. weatherState:', weatherState, 'reducedMotion:', reducedMotion);
-      if (weatherState === 'clear') {
-        startRain();
-        // If reducedMotion is on, the animation loop was never started (only
-        // a single render(0) ran at init).  Kick it into gear so rain actually
-        // draws.  It will be stopped again when rain fades back to 'clear'.
-        if (reducedMotion && !animFrame) {
-          animFrame = requestAnimationFrame(render);
-          console.log('[Rain Debug] Animation loop restarted for manual rain trigger');
-        }
-        console.log('[Rain Debug] startRain() called. weatherState now:', weatherState, 'rainDrops:', rainDrops.length);
-      }
     }
   });
 
