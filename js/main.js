@@ -511,7 +511,7 @@ function initCityBackground() {
     var now = Date.now();
     weatherState = 'fade-in';
     weatherStartTime = now;
-    weatherDuration = 25000 + Math.random() * 45000; // 25-70s of rain
+    weatherDuration = Infinity; // Permanent rain
     weatherAlpha = 0;
     generateRainDrops();
     lightningCooldown = now + 6000; // no lightning in first 6s
@@ -543,9 +543,7 @@ function initCityBackground() {
         break;
 
       case 'raining':
-        if (now - weatherStartTime > weatherDuration) {
-          weatherState = 'fade-out';
-        }
+        // Rain is permanent, so we never transition to fade-out
         break;
 
       case 'fade-out':
