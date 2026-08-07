@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════════════
+   Documentation Cards — Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── Document Cards Grid ── */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.2rem;
+}
+
+/* ── Document Card ── */
+.doc-card {
+  padding: 1.35rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.doc-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -40% -60% auto;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(var(--accent-0-rgb), 0.12), transparent 70%);
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.doc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-0-rgb), 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.doc-card:hover::before {
+  transform: scale(1.15);
+}
+
+/* ── PDF Icon ── */
+.doc-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 0.6rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.doc-card:hover .doc-icon {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.doc-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ── Card Body ── */
+.doc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-0);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.doc-desc {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Stage Badge ── */
+.doc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(var(--accent-0-rgb), 0.35);
+  background: rgba(var(--accent-0-rgb), 0.1);
+  color: var(--accent-light);
+}
+
+.completed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.completed-badge.is-complete {
+  color: #a3f5a0;
+  border: 1px solid rgba(163, 245, 160, 0.35);
+  background: rgba(163, 245, 160, 0.08);
+}
+
+.completed-badge.is-draft {
+  color: #ffcb70;
+  border: 1px solid rgba(255, 203, 112, 0.35);
+  background: rgba(255, 203, 112, 0.08);
+}
+
+/* ── Document Actions ── */
+.doc-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.doc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.doc-btn:hover {
+  transform: translateY(-2px);
+}
+
+.doc-btn-view {
+  background: linear-gradient(90deg, var(--accent-0), var(--accent-1));
+  color: #0a0818;
+  box-shadow: 0 0 0 1px rgba(var(--accent-0-rgb), 0.3), 0 0 14px rgba(var(--accent-0-rgb), 0.2);
+}
+
+.doc-btn-view:hover {
+  box-shadow: 0 0 0 1px rgba(var(--accent-0-rgb), 0.45), 0 0 22px rgba(var(--accent-0-rgb), 0.32);
+}
+
+.doc-btn-download {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-1);
+}
+
+.doc-btn-download:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(var(--accent-light-rgb), 0.4);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.doc-btn svg {
+  width: 0.88rem;
+  height: 0.88rem;
+}
+
+/* ── Empty State ── */
+.doc-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-2);
+  font-size: 0.9rem;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+}
+
+/* ═══════════════════════════════════════════════════
+   Responsive — Documentation
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+  .doc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-card {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.2rem;
+  }
+
+  .doc-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

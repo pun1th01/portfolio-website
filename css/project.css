@@ -1,0 +1,504 @@
+/* ═══════════════════════════════════════════════════
+   Project Page — Shared Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── Layout ── */
+.project-page {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg-0);
+}
+
+.project-page-content {
+  padding: 2rem 2.5rem 4rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Back Link ── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-2);
+  font-size: 0.88rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-sm);
+  transition: color 0.25s ease, background 0.25s ease;
+  margin-bottom: 1.5rem;
+}
+
+.back-link:hover {
+  color: var(--text-0);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.back-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ── Sticky Section Nav (Sidebar) ── */
+.section-nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 0.8rem 2rem 1.2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 11, 24, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.section-nav-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+  margin-bottom: 1rem;
+  padding-left: 0.6rem;
+}
+
+.section-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.section-nav-list a {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--text-2);
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  border-left: 2px solid transparent;
+}
+
+.section-nav-list a:hover {
+  color: var(--text-0);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.section-nav-list a.active {
+  color: var(--accent-0);
+  background: rgba(var(--accent-0-rgb), 0.08);
+  border-left-color: var(--accent-0);
+}
+
+/* ── Project Hero ── */
+.project-hero {
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-hero::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -80px;
+  top: -80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-0-rgb), 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.project-hero-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.project-hero h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status-badge.active {
+  color: #a3f5a0;
+  border: 1px solid rgba(163, 245, 160, 0.4);
+  background: rgba(163, 245, 160, 0.1);
+  box-shadow: 0 0 18px rgba(163, 245, 160, 0.12);
+}
+
+.status-badge .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a3f5a0;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px rgba(163, 245, 160, 0.6); }
+  50% { opacity: 0.5; box-shadow: 0 0 12px rgba(163, 245, 160, 0.3); }
+}
+
+.project-hero-desc {
+  color: var(--text-2);
+  font-size: 1.05rem;
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+.project-hero .cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* ── Section Headings (Project Page) ── */
+.proj-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 2rem;
+}
+
+.proj-section-title {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  margin-bottom: 1.2rem;
+  color: var(--text-0);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.proj-section-title .section-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--accent-0);
+  flex-shrink: 0;
+}
+
+/* ── Overview Cards ── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.overview-card {
+  padding: 1.3rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-0-rgb), 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.overview-card-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.65rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.8rem;
+  background: rgba(var(--accent-0-rgb), 0.12);
+  color: var(--accent-0);
+}
+
+.overview-card-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.overview-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.45rem;
+  color: var(--text-0);
+}
+
+.overview-card p {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* ── Progress Stages ── */
+.progress-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  padding: 0.5rem 0;
+  overflow-x: auto;
+}
+
+.progress-stage {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.progress-stage::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.progress-stage:first-child::before {
+  left: 50%;
+}
+
+.progress-stage:last-child::before {
+  right: 50%;
+}
+
+.stage-marker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.6rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-1);
+  color: var(--text-2);
+  transition: all 0.3s ease;
+}
+
+.progress-stage.completed .stage-marker {
+  background: rgba(163, 245, 160, 0.15);
+  border-color: rgba(163, 245, 160, 0.5);
+  color: #a3f5a0;
+  box-shadow: 0 0 14px rgba(163, 245, 160, 0.2);
+}
+
+.progress-stage.in-progress .stage-marker {
+  background: rgba(255, 203, 112, 0.15);
+  border-color: rgba(255, 203, 112, 0.5);
+  color: #ffcb70;
+  box-shadow: 0 0 14px rgba(255, 203, 112, 0.2);
+  animation: pulse-glow-amber 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-amber {
+  0%, 100% { box-shadow: 0 0 14px rgba(255, 203, 112, 0.2); }
+  50% { box-shadow: 0 0 22px rgba(255, 203, 112, 0.35); }
+}
+
+.stage-label {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  display: block;
+}
+
+.progress-stage.completed .stage-label {
+  color: #a3f5a0;
+}
+
+.progress-stage.in-progress .stage-label {
+  color: #ffcb70;
+}
+
+.stage-title {
+  font-size: 0.76rem;
+  color: var(--text-2);
+  margin-top: 0.2rem;
+  opacity: 0.7;
+  display: block;
+}
+
+/* ── Roadmap ── */
+.roadmap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.roadmap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.roadmap-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.roadmap-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  margin-top: 0.1rem;
+}
+
+.roadmap-item.done .roadmap-check {
+  background: rgba(163, 245, 160, 0.15);
+  border-color: rgba(163, 245, 160, 0.5);
+  color: #a3f5a0;
+}
+
+.roadmap-item.done .roadmap-check::after {
+  content: "✓";
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.roadmap-text {
+  font-size: 0.92rem;
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+.roadmap-item.done .roadmap-text {
+  color: var(--text-2);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Project Page Footer ── */
+.project-footer {
+  text-align: center;
+  color: var(--text-2);
+  padding: 2rem 0 1rem;
+  font-size: 0.88rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 2rem;
+}
+
+/* ── Disabled Button ── */
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   Responsive — Project Page
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-page {
+    grid-template-columns: 1fr;
+  }
+
+  .section-nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1rem;
+    z-index: 100;
+  }
+
+  .section-nav-title {
+    display: none;
+  }
+
+  .section-nav-list {
+    flex-direction: row;
+    gap: 0.15rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.2rem;
+  }
+
+  .section-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-nav-list a {
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .section-nav-list a.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent-0);
+  }
+
+  .project-page-content {
+    padding: 1.5rem 1.2rem 3rem;
+  }
+
+  .project-hero {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .progress-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 640px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-hero h1 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .project-hero-desc {
+    font-size: 0.92rem;
+  }
+
+  .project-page-content {
+    padding: 1rem 0.8rem 2.5rem;
+  }
+}
