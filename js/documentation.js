@@ -134,6 +134,7 @@
 
   /* ═══════════════════════════════════════════════════
      Sticky Section Nav — Active Highlight
+     (Smooth scroll + reveal animations handled by main.js)
      ═══════════════════════════════════════════════════ */
 
   function initSectionNav() {
@@ -141,19 +142,6 @@
     var sections = Array.from(document.querySelectorAll(".proj-section[id]"));
 
     if (!navLinks.length || !sections.length) return;
-
-    // Smooth scroll on nav click
-    navLinks.forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        var href = link.getAttribute("href");
-        if (!href || !href.startsWith("#")) return;
-        e.preventDefault();
-        var target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    });
 
     // Active state on scroll
     function updateActiveNav() {
@@ -177,38 +165,6 @@
   }
 
   /* ═══════════════════════════════════════════════════
-     Reveal Animation (same as portfolio)
-     ═══════════════════════════════════════════════════ */
-
-  function initRevealAnimations() {
-    var reveals = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      reveals.forEach(function (el) { observer.observe(el); });
-    } else {
-      reveals.forEach(function (el) { el.classList.add("show"); });
-    }
-  }
-
-  /* ═══════════════════════════════════════════════════
-     Footer Year
-     ═══════════════════════════════════════════════════ */
-
-  function initFooterYear() {
-    var el = document.getElementById("year");
-    if (el) el.textContent = new Date().getFullYear();
-  }
-
-  /* ═══════════════════════════════════════════════════
      Utility: HTML Escape
      ═══════════════════════════════════════════════════ */
 
@@ -229,7 +185,6 @@
     renderDocumentCards();
     renderRoadmap();
     initSectionNav();
-    initRevealAnimations();
-    initFooterYear();
   });
 })();
+
