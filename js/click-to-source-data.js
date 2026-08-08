@@ -54,7 +54,7 @@ const CTS_DATA = {
       title: "Metadata Convention",
       description: "Permanent v0.1 architectural contract defining the canonical way provenance metadata is structured.",
       stage: 2,
-      file: "metadata-convention.md",
+      file: "metadata-convention.pdf",
       completed: true
     },
     {

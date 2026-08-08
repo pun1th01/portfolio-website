@@ -130,7 +130,7 @@ PortfolioWebsite/
 │   │       ├── Stage2_Architectural_Validation_Report.pdf
 │   │       ├── experimentResults.txt
 │   │       ├── future-auto-instrumentation-design.md
-│   │       ├── metadata-convention.md
+│   │       ├── metadata-convention.pdf
 │   │       └── stage2-desk-audit.md
 │   │
 │   └── thumbnails/
