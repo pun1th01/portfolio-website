@@ -42,6 +42,34 @@ const CTS_DATA = {
       stage: 1,
       file: "Stage1_Experimental_Report.pdf",
       completed: true
+    },
+    {
+      title: "Stage 2 Architectural Validation Report",
+      description: "The primary architectural validation report representing the architectural work completed after Stage 1.",
+      stage: 2,
+      file: "Stage2_Architectural_Validation_Report.pdf",
+      completed: true
+    },
+    {
+      title: "Metadata Convention",
+      description: "Permanent v0.1 architectural contract defining the canonical way provenance metadata is structured.",
+      stage: 2,
+      file: "metadata-convention.md",
+      completed: true
+    },
+    {
+      title: "Future Auto-Instrumentation Design",
+      description: "Design-only document for future automatic instrumentation strategies. (Not implemented)",
+      stage: 2,
+      file: "future-auto-instrumentation-design.md",
+      completed: true
+    },
+    {
+      title: "Stage 2 Desk Audit",
+      description: "Source-level audit confirming Stage 1 compliance with the finalized Stage 2 convention.",
+      stage: 2,
+      file: "stage2-desk-audit.md",
+      completed: true
     }
   ],
 
