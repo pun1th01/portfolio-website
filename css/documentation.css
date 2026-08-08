@@ -5,7 +5,7 @@
 /* ── Document Cards Grid ── */
 .doc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
   gap: 1.2rem;
 }
 
@@ -144,6 +144,7 @@
 .doc-actions {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .doc-btn {
@@ -219,5 +220,30 @@
   .doc-icon {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doc-card {
+    padding: 1rem;
+  }
+
+  .doc-title {
+    font-size: 0.92rem;
+  }
+
+  .doc-desc {
+    font-size: 0.82rem;
+    -webkit-line-clamp: 2;
+    margin-bottom: 0.5rem;
+  }
+
+  .doc-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .doc-meta {
+    margin-bottom: 0.6rem;
   }
 }

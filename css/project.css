@@ -10,7 +10,7 @@ html {
 /* ── Layout ── */
 .project-page {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 0;
   min-height: 100vh;
   position: relative;
@@ -21,7 +21,9 @@ html {
   padding: 2rem 2.5rem 4rem;
   max-width: 1100px;
   width: 100%;
+  min-width: 0;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 /* ── Back Link ── */
@@ -441,7 +443,7 @@ html {
 
 @media (max-width: 900px) {
   .project-page {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .section-nav {
@@ -495,6 +497,11 @@ html {
   .progress-track {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .progress-track::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -513,5 +520,102 @@ html {
 
   .project-page-content {
     padding: 1rem 0.8rem 2.5rem;
+  }
+
+  .project-hero .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-hero .cta-row .btn {
+    justify-content: center;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Progress track: switch to vertical layout on phones */
+  .progress-track {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: visible;
+    gap: 0;
+  }
+
+  .progress-stage {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: left;
+    min-width: 0;
+    padding: 0.4rem 0;
+  }
+
+  .progress-stage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 17px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-stage:first-child::before {
+    top: 50%;
+    left: 17px;
+  }
+
+  .progress-stage:last-child::before {
+    bottom: 50%;
+    right: auto;
+    left: 17px;
+  }
+
+  .stage-marker {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .stage-label {
+    display: inline;
+    font-weight: 600;
+  }
+
+  .stage-title {
+    display: inline;
+    margin-top: 0;
+    margin-left: 0.3rem;
+  }
+
+  .stage-title::before {
+    content: "— ";
+  }
+
+  .project-page-content {
+    padding: 0.8rem 0.65rem 2rem;
+  }
+
+  .project-hero {
+    padding: 1.2rem 1rem;
+  }
+
+  .project-hero-desc {
+    font-size: 0.88rem;
+  }
+
+  .roadmap-item {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .roadmap-text {
+    font-size: 0.86rem;
+  }
+
+  .project-footer {
+    font-size: 0.82rem;
+    padding: 1.5rem 0 0.8rem;
   }
 }
