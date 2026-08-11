@@ -128,10 +128,7 @@ PortfolioWebsite/
 │   │       ├── Click-to-Source_Technical_Approaches.pdf
 │   │       ├── Stage1_Experimental_Report.pdf
 │   │       ├── Stage2_Architectural_Validation_Report.pdf
-│   │       ├── experimentResults.txt
-│   │       ├── future-auto-instrumentation-design.md
-│   │       ├── metadata-convention.pdf
-│   │       └── stage2-desk-audit.md
+│   │       └── experimentResults.txt
 │   │
 │   └── thumbnails/
 │       └── click-to-source-3d/
