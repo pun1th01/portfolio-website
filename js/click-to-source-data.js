@@ -48,6 +48,13 @@ const CTS_DATA = {
       description: "The primary architectural validation report representing the architectural work completed after Stage 1.",
       stage: 2,
       file: "Stage2_Architectural_Validation_Report.pdf",
+    },
+    {
+      title: "Stage 3 Implementation & Validation Report",
+      description: "The implementation and validation report for Stage 3, detailing the core engine and overlay construction.",
+      stage: 3,
+      file: "Stage3_Implementation_Validation_Report.pdf",
+      completed: true
     }
   ],
 
@@ -74,7 +81,7 @@ const CTS_DATA = {
   stages: [
     { label: "Stage 0", title: "Scope & Planning", status: "completed" },
     { label: "Stage 1", title: "Prove the Mechanism", status: "completed" },
-    { label: "Stage 3", title: "Core Engine + Overlay", status: "in-progress" },
+    { label: "Stage 3", title: "Core Engine + Overlay", status: "completed" },
     { label: "Stage 4", title: "Dogfooding", status: "upcoming" },
     { label: "Stage 5", title: "Package Polish", status: "upcoming" },
     { label: "Stage 6–7", title: "MCP / AI Mode + Ship", status: "upcoming" }
@@ -84,7 +91,7 @@ const CTS_DATA = {
   roadmap: [
     { text: "Scope & Planning — problem definition, research, architecture, documentation", done: true },
     { text: "Prove the Mechanism — 7 experiments, experimental validation report", done: true },
-    { text: "Core Engine + Overlay — MVP: raycast, resolve, edit (no AI)", done: false },
+    { text: "Core Engine + Overlay — MVP: raycast, resolve, edit (no AI)", done: true },
     { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: false },
     { text: "Package Polish — install experience, README, demo", done: false },
     { text: "MCP / AI Mode — agent tool surface for LLM-driven workflows", done: false },
