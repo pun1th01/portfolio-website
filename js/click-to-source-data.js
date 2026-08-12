@@ -48,6 +48,7 @@ const CTS_DATA = {
       description: "The primary architectural validation report representing the architectural work completed after Stage 1.",
       stage: 2,
       file: "Stage2_Architectural_Validation_Report.pdf",
+      completed: true
     },
     {
       title: "Stage 3 Implementation & Validation Report",
@@ -82,7 +83,7 @@ const CTS_DATA = {
     { label: "Stage 0", title: "Scope & Planning", status: "completed" },
     { label: "Stage 1", title: "Prove the Mechanism", status: "completed" },
     { label: "Stage 3", title: "Core Engine + Overlay", status: "completed" },
-    { label: "Stage 4", title: "Dogfooding", status: "upcoming" },
+    { label: "Stage 4", title: "Dogfooding", status: "in-progress" },
     { label: "Stage 5", title: "Package Polish", status: "upcoming" },
     { label: "Stage 6–7", title: "MCP / AI Mode + Ship", status: "upcoming" }
   ],
