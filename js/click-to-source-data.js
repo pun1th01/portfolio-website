@@ -82,6 +82,7 @@ const CTS_DATA = {
   stages: [
     { label: "Stage 0", title: "Scope & Planning", status: "completed" },
     { label: "Stage 1", title: "Prove the Mechanism", status: "completed" },
+    { label: "Stage 2", title: "Architectural Validation", status: "completed" },
     { label: "Stage 3", title: "Core Engine + Overlay", status: "completed" },
     { label: "Stage 4", title: "Dogfooding", status: "in-progress" },
     { label: "Stage 5", title: "Package Polish", status: "upcoming" },
@@ -92,6 +93,7 @@ const CTS_DATA = {
   roadmap: [
     { text: "Scope & Planning — problem definition, research, architecture, documentation", done: true },
     { text: "Prove the Mechanism — 7 experiments, experimental validation report", done: true },
+    { text: "Architectural Validation — evaluating candidate approaches, selecting AST analysis", done: true },
     { text: "Core Engine + Overlay — MVP: raycast, resolve, edit (no AI)", done: true },
     { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: false },
     { text: "Package Polish — install experience, README, demo", done: false },

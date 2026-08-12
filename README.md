@@ -34,7 +34,7 @@ A dedicated engineering project page is available at [`pages/click-to-source-3d.
 
 1. **Hero** — Title, active development badge, description, CTA buttons
 2. **Overview** — Problem / Current Solutions / My Solution cards
-3. **Progress** — Stage completion tracker (5 stages)
+3. **Progress** — Stage completion tracker (7 stages)
 4. **Documentation** — Dynamically generated PDF document cards (main feature)
 5. **Gallery** — Responsive media grid (images, videos, GIFs)
 6. **Technical Highlights** — Feature cards (Three.js, AST Analysis, etc.)
