@@ -56,6 +56,13 @@ const CTS_DATA = {
       stage: 3,
       file: "Stage3_Implementation_Validation_Report.pdf",
       completed: true
+    },
+    {
+      title: "Stage 4 Dogfooding Report",
+      description: "Results and lessons from dogfooding the tool on the Procedural World Generator, addressing known regressions.",
+      stage: 4,
+      file: "Stage4_Dogfooding_Report.pdf",
+      completed: true
     }
   ],
 
@@ -84,8 +91,8 @@ const CTS_DATA = {
     { label: "Stage 1", title: "Prove the Mechanism", status: "completed" },
     { label: "Stage 2", title: "Architectural Validation", status: "completed" },
     { label: "Stage 3", title: "Core Engine + Overlay", status: "completed" },
-    { label: "Stage 4", title: "Dogfooding", status: "in-progress" },
-    { label: "Stage 5", title: "Package Polish", status: "upcoming" },
+    { label: "Stage 4", title: "Dogfooding", status: "completed" },
+    { label: "Stage 5", title: "Package Polish", status: "in-progress" },
     { label: "Stage 6–7", title: "MCP / AI Mode + Ship", status: "upcoming" }
   ],
 
@@ -95,7 +102,7 @@ const CTS_DATA = {
     { text: "Prove the Mechanism — 7 experiments, experimental validation report", done: true },
     { text: "Architectural Validation — evaluating candidate approaches, selecting AST analysis", done: true },
     { text: "Core Engine + Overlay — MVP: raycast, resolve, edit (no AI)", done: true },
-    { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: false },
+    { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: true },
     { text: "Package Polish — install experience, README, demo", done: false },
     { text: "MCP / AI Mode — agent tool surface for LLM-driven workflows", done: false },
     { text: "Ship — npm publish, GitHub release", done: false }
