@@ -63,6 +63,20 @@ const CTS_DATA = {
       stage: 4,
       file: "Stage4_Dogfooding_Report.pdf",
       completed: true
+    },
+    {
+      title: "Auto-Instrumentation Experiment Design",
+      description: "Experiment design document for Auto-Instrumentation.",
+      stage: 5,
+      file: "AutoInstrumentation_Experiment_Design.pdf",
+      completed: true
+    },
+    {
+      title: "Auto-Instrumentation Experimental Results",
+      description: "Experimental results for Auto-Instrumentation.",
+      stage: 5,
+      file: "AutoInstrumentation_Experimental_Results.pdf",
+      completed: true
     }
   ],
 
