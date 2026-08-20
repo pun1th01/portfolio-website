@@ -359,11 +359,16 @@ h1 {
 .contact-card {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 1.25rem;
   padding: 0.8rem;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.contact-card .icon {
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .contact-label {
