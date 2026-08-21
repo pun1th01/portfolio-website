@@ -77,6 +77,13 @@ const CTS_DATA = {
       stage: 5,
       file: "AutoInstrumentation_Experimental_Results.pdf",
       completed: true
+    },
+    {
+      title: "Auto-Instrumentation Implementation Plan",
+      description: "Implementation plan for Auto-Tagging and Auto-Instrumentation.",
+      stage: 5,
+      file: "Implementation_Plan_AutoTagging.pdf",
+      completed: true
     }
   ],
 
