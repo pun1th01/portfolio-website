@@ -84,6 +84,13 @@ const CTS_DATA = {
       stage: 5,
       file: "Implementation_Plan_AutoTagging.pdf",
       completed: true
+    },
+    {
+      title: "Stage 5 Package Polish Report",
+      description: "Report for Stage 5 Package Polish.",
+      stage: 5,
+      file: "Stage5_Report.pdf",
+      completed: true
     }
   ],
 
