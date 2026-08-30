@@ -128,7 +128,8 @@ const CTS_DATA = {
     { label: "Stage 3", title: "Core Engine + Overlay", status: "completed" },
     { label: "Stage 4", title: "Dogfooding", status: "completed" },
     { label: "Stage 5", title: "Package Polish", status: "completed" },
-    { label: "Stage 6–7", title: "MCP / AI Mode + Ship", status: "in-progress" }
+    { label: "Stage 6", title: "MCP / AI Mode", status: "completed" },
+    { label: "Stage 7", title: "Ship", status: "in-progress" }
   ],
 
   /* ── Roadmap (traces to documented stages) ── */
@@ -139,7 +140,7 @@ const CTS_DATA = {
     { text: "Core Engine + Overlay — MVP: raycast, resolve, edit (no AI)", done: true },
     { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: true },
     { text: "Package Polish — install experience, README, demo", done: true },
-    { text: "MCP / AI Mode — agent tool surface for LLM-driven workflows", done: false },
+    { text: "MCP / AI Mode — agent tool surface for LLM-driven workflows", done: true },
     { text: "Ship — npm publish, GitHub release", done: false }
   ]
 };
