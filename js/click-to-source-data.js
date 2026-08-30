@@ -91,6 +91,13 @@ const CTS_DATA = {
       stage: 5,
       file: "Stage5_Report.pdf",
       completed: true
+    },
+    {
+      title: "Stage 6 Report",
+      description: "Report for Stage 6.",
+      stage: 6,
+      file: "Stage6_Report.pdf",
+      completed: true
     }
   ],
 
