@@ -156,6 +156,19 @@ html {
   box-shadow: 0 0 18px rgba(163, 245, 160, 0.12);
 }
 
+.status-badge.completed {
+  color: #7dd3fc;
+  border: 1px solid rgba(125, 211, 252, 0.4);
+  background: rgba(125, 211, 252, 0.1);
+  box-shadow: 0 0 18px rgba(125, 211, 252, 0.12);
+}
+
+.status-badge .badge-check-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 .status-badge .pulse-dot {
   width: 7px;
   height: 7px;
