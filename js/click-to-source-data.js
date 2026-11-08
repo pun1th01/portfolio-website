@@ -98,6 +98,13 @@ const CTS_DATA = {
       stage: 6,
       file: "Stage6_Report.pdf",
       completed: true
+    },
+    {
+      title: "Implementation Plan — 0.1.5 to 0.2.0",
+      description: "The plan for one-command setup with no wiring, the AI agent panel, and support for plain three.js with nothing tagged by hand.",
+      stage: "8–9",
+      file: "Click-to-Source_Implementation_Plan_0.1.5-0.2.0.pdf",
+      completed: true
     }
   ],
 
@@ -115,8 +122,36 @@ const CTS_DATA = {
     },
     {
       title: "My Solution",
-      description: "Click-to-Source 3D uses AST analysis and runtime instrumentation to map every Three.js object back to its exact source location — then navigates your editor there.",
+      description: "A Vite plugin that reads your code and records where every object is made, so clicking any mesh shows the exact line that made it and lets you edit its values live. One command to set up, nothing to add to your code.",
       icon: "solution"
+    }
+  ],
+
+  /* ── Features (what the released tool does) ── */
+  features: [
+    {
+      title: "Click a mesh, see its line",
+      description: "Works in plain three.js and React Three Fiber, even both in one scene. Finds objects made in functions, classes, loops and loaded models, across files."
+    },
+    {
+      title: "The calls that led there",
+      description: "Shows the calls that built the object with the values they were given, and the helpers behind it, such as a noise function."
+    },
+    {
+      title: "Edit values live",
+      description: "Drag a number to preview it in the scene, then press Enter to save it to the source file. Colours, positions and geometry sizes all work."
+    },
+    {
+      title: "Works with AI assistants",
+      description: "An MCP server lets Claude Code, Cursor and VS Code see the objects you point at and edit them. One button in the panel turns it on."
+    },
+    {
+      title: "One command to set up",
+      description: "npx click-to-source-3d init sets up an existing Vite app, a monorepo, or a bare folder with only a page and a script."
+    },
+    {
+      title: "Nothing in production",
+      description: "Your objects get nothing added to them, and none of the inspector reaches a production build, a server render or a test run."
     }
   ],
 
@@ -129,7 +164,9 @@ const CTS_DATA = {
     { label: "Stage 4", title: "Dogfooding", status: "completed" },
     { label: "Stage 5", title: "Package Polish", status: "completed" },
     { label: "Stage 6", title: "MCP / AI Mode", status: "completed" },
-    { label: "Stage 7", title: "Ship", status: "completed" }
+    { label: "Stage 7", title: "Ship", status: "completed" },
+    { label: "Stage 8", title: "One Command & Agent Panel", status: "completed" },
+    { label: "Stage 9", title: "Plain three.js", status: "completed" }
   ],
 
   /* ── Roadmap (traces to documented stages) ── */
@@ -141,6 +178,10 @@ const CTS_DATA = {
     { text: "Dogfooding — apply to Procedural World Generator, fix known regressions", done: true },
     { text: "Package Polish — install experience, README, demo", done: true },
     { text: "MCP / AI Mode — agent tool surface for LLM-driven workflows", done: true },
-    { text: "Ship — npm publish, GitHub release", done: true }
+    { text: "Ship — npm publish, GitHub release (0.1.0)", done: true },
+    { text: "One command, no wiring — setup with nothing to add to your code, for React Three Fiber (0.1.5)", done: true },
+    { text: "Agent panel — point an AI assistant at objects, watch what it does, live previews (0.1.6)", done: true },
+    { text: "Plain three.js — nothing tagged by hand, call traces and helpers, an MCP button (0.2.0)", done: true },
+    { text: "Beyond Vite — webpack and Next.js support", done: false }
   ]
 };

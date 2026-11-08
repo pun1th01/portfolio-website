@@ -54,6 +54,42 @@
   }
 
   /* ═══════════════════════════════════════════════════
+     Features Renderer
+     ═══════════════════════════════════════════════════ */
+
+  function renderFeatures() {
+    const container = document.getElementById("feature-cards");
+    if (!container || !CTS_DATA.features) return;
+
+    container.innerHTML = CTS_DATA.features.map(function (card) {
+      return '<article class="overview-card">' +
+        '<div class="overview-card-icon">' + overviewIconSVG("solution") + '</div>' +
+        '<h3>' + escapeHtml(card.title) + '</h3>' +
+        '<p>' + escapeHtml(card.description) + '</p>' +
+        '</article>';
+    }).join("");
+  }
+
+  /* ═══════════════════════════════════════════════════
+     Install Command Copy Button
+     ═══════════════════════════════════════════════════ */
+
+  function initCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var text = button.getAttribute("data-copy");
+        var done = function () {
+          button.textContent = "Copied";
+          setTimeout(function () { button.textContent = "Copy"; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () {});
+        }
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════
      Progress Stages Renderer
      ═══════════════════════════════════════════════════ */
 
@@ -181,10 +217,12 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     renderOverview();
+    renderFeatures();
     renderProgress();
     renderDocumentCards();
     renderRoadmap();
     initSectionNav();
+    initCopyButtons();
   });
 })();
 

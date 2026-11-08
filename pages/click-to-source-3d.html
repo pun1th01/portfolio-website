@@ -5,18 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Click-to-Source 3D — a development tool that maps visual elements in a Three.js scene back to their source code. View documentation, progress, and technical details." />
+    content="Click-to-Source 3D: click any mesh in a three.js or React Three Fiber scene to see the line of code that made it, and edit its values live. Open source, on npm, with an MCP server for AI assistants." />
   <meta property="og:title" content="Click-to-Source 3D | Punith P" />
   <meta property="og:description"
-    content="A 3D development tool mapping visual Three.js elements to their source code definitions." />
-  <meta property="og:image" content="../assets/images/profile/MyNewPFP.png" />
+    content="Click any mesh in a three.js or React Three Fiber scene to see the line of code that made it, and edit its values live. A Vite plugin with one-command setup and an MCP server for AI assistants." />
+  <meta property="og:image" content="https://pun1th01.github.io/portfolio-website/assets/images/click-to-source-3d/inspector-three.png" />
   <meta property="og:url" content="https://pun1th01.github.io/portfolio-website/pages/click-to-source-3d.html" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Click-to-Source 3D | Punith P" />
   <meta name="twitter:description"
-    content="A 3D development tool mapping visual Three.js elements to their source code definitions." />
-  <meta name="twitter:image" content="../assets/images/profile/MyNewPFP.png" />
+    content="Click any mesh in a three.js or React Three Fiber scene to see the line of code that made it, and edit its values live. A Vite plugin with one-command setup and an MCP server for AI assistants." />
+  <meta name="twitter:image" content="https://pun1th01.github.io/portfolio-website/assets/images/click-to-source-3d/inspector-three.png" />
   <title>Click-to-Source 3D | Punith P</title>
   <link rel="canonical" href="https://pun1th01.github.io/portfolio-website/pages/click-to-source-3d.html" />
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
@@ -39,6 +39,7 @@
       <ul class="section-nav-list">
         <li><a href="#hero">Hero</a></li>
         <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">What it does</a></li>
         <li><a href="#progress">Progress</a></li>
         <li><a href="#documentation">Documentation</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
@@ -68,13 +69,20 @@
             <svg class="badge-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
               <polyline points="20 6 9 17 4 12" />
             </svg>
-            Completed
+            Released · v0.2.0
           </span>
         </div>
         <p class="project-hero-desc">
-          A development tool that maps visual elements in a Three.js scene back to their source code definitions.
-          Click any 3D object and navigate directly to the exact line of code that created it.
+          Inspect Element, but for 3D. Click any mesh in a three.js or React Three Fiber scene to see the
+          line of code that made it, the calls that led there and the helpers it used, then change its
+          values right there. It's an open-source Vite plugin with nothing to add to your code, and it
+          connects to AI coding assistants like Claude Code.
         </p>
+        <div class="install-cmd" aria-label="Install command">
+          <code>npx click-to-source-3d init</code>
+          <button type="button" class="install-copy" data-copy="npx click-to-source-3d init"
+            aria-label="Copy install command">Copy</button>
+        </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="#documentation" aria-label="Jump to documentation section">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -82,6 +90,14 @@
               <polyline points="14 2 14 8 20 8" />
             </svg>
             Documentation
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/pun1th01/click-to-source-3d/releases/latest" target="_blank"
+            rel="noopener noreferrer" aria-label="Open the latest release notes">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
+            </svg>
+            Release notes
           </a>
           <a class="btn btn-secondary" href="https://github.com/pun1th01/click-to-source-3d" target="_blank"
             rel="noopener noreferrer" aria-label="Open GitHub repository">
@@ -101,6 +117,12 @@
         </div>
       </section>
 
+      <figure class="project-shot reveal">
+        <img src="../assets/images/click-to-source-3d/inspector-three.png" width="1280" height="860" loading="lazy"
+          alt="The inspector open on a terrain made by plain three.js code: the line that made it, the calls that led there with their values, its geometry and material, and the noise function behind it" />
+        <figcaption>The inspector on a terrain made by plain three.js code, with the noise function behind it.</figcaption>
+      </figure>
+
       <!-- ═══════════════════════════════════════════
            Section 2: Overview
            ═══════════════════════════════════════════ -->
@@ -116,6 +138,26 @@
         <div class="overview-grid" id="overview-cards">
           <!-- Rendered by documentation.js -->
         </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           Section 2b: Features
+           ═══════════════════════════════════════════ -->
+      <section id="features" class="proj-section reveal" aria-label="What it does">
+        <h2 class="proj-section-title">
+          <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+          What it does
+        </h2>
+        <div class="overview-grid" id="feature-cards">
+          <!-- Rendered by documentation.js from CTS_DATA.features -->
+        </div>
+        <figure class="project-shot">
+          <img src="../assets/images/click-to-source-3d/inspector-agent.png" width="1280" height="720" loading="lazy"
+            alt="The Agent tab: Claude Code connected, two objects pointed at and outlined, and a log of its tool calls" />
+          <figcaption>The Agent tab: point an AI assistant at objects and see every change it makes.</figcaption>
+        </figure>
       </section>
 
       <!-- ═══════════════════════════════════════════
